@@ -1,18 +1,21 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 
 import { todoReducer } from '../../reducers/todoReducer';
 import { TodoAddTask } from './TodoAddTask';
 import { TodoItem } from './TodoItem';
 
-const initialState = [{
-    id: new Date().getTime(),
-    desc: 'task 1',
-    done: false
-}];
+const init = () => {
+    return JSON.parse(localStorage.getItem('todos')) || [];
+};
 
 export const TodoList = () => {
 
-    const [ todos, dispatch ] = useReducer( todoReducer, initialState );
+    const [ todos, dispatch ] = useReducer( todoReducer, [], init );
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify( todos ));
+    }, [todos]);
+
     console.log(todos);
 
     return (
@@ -35,7 +38,10 @@ export const TodoList = () => {
                 <div className="col-sm col-7">
                     <h2>ADD TASK</h2>
 
-                    <TodoAddTask dispatch={ dispatch } />
+                    <TodoAddTask 
+                        todoList={ todos }
+                        dispatch={ dispatch } 
+                    />
                 </div>
             </div>
         </>
