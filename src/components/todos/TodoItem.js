@@ -6,12 +6,18 @@ export const TodoItem = ({task, index, dispatch}) => {
 
     const handleDeleteTask = () => {
 
-        const deleteTask = {
+        dispatch({
             type: 'delete',
             payload: task.id
-        }
+        });
+    }
 
-        dispatch( deleteTask );
+    const handleCheckedTask = () => {
+
+        dispatch({
+            type: 'checked',
+            payload: task.id
+        });
     }
 
     return (
@@ -19,7 +25,9 @@ export const TodoItem = ({task, index, dispatch}) => {
             className="home__todo-item list-group-item"
         >
             <div className="home__todo-item-content alignX pushAside">
-                <p className="home__todo-desc">
+                <p 
+                    className={ `home__todo-desc ${ task.done && 'checkedTask' }` }
+                    onClick={ handleCheckedTask }>
                     { index + 1 }. { task.desc }    
                 </p>    
                 <CustomBtn
