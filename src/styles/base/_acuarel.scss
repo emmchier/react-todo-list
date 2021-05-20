@@ -1,0 +1,133 @@
+/*
+ * custom styles library
+ */
+ @mixin shadow($box-shadow1, $box-shadow2, $box-shadow3) {
+    -webkit-box-shadow: $box-shadow1, $box-shadow2, $box-shadow3;
+            box-shadow: $box-shadow1, $box-shadow2, $box-shadow3;
+  }
+  
+@mixin shadow-none($box-shadow-none) {
+  -webkit-box-shadow: $box-shadow-none;
+          box-shadow: $box-shadow-none;
+}
+
+@mixin getShadow {
+  @include shadow(
+    0 8px 17px 2px rgba(71, 69, 69, 0.023), 
+    0 3px 14px 2px rgba(71, 69, 69, 0.023), 
+    0 5px 5px -3px rgba(71, 69, 69, 0.023) !important);
+}
+
+.main-elevation {
+  @include shadow(
+    0 8px 17px 2px rgba(71, 69, 69, 0.023), 
+    0 3px 14px 2px rgba(71, 69, 69, 0.023), 
+    0 5px 5px -3px rgba(71, 69, 69, 0.023) !important);
+}
+
+.no-elevation {
+  @include shadow-none(none !important);
+}
+
+.full-rounded {
+  border-radius: 20px !important;
+}
+
+.alignX {
+  display: flex !important;
+  align-items: center !important;
+}
+
+@mixin reverse($scale) {
+  -moz-transform: $scale;
+  -webkit-transform: $scale;
+  -o-transform: $scale;
+  transform: $scale;
+}
+
+.reverseX {
+  @include reverse(scaleX(-1));
+}
+
+.reverseY {
+  @include reverse(scaleY(-1));
+}
+
+@mixin aligment($align-items) {
+  -webkit-align-items: $align-items;
+    -webkit-box-align: $align-items;
+        -ms-flex-align: $align-items;
+          align-items: $align-items;
+}
+
+.pushAside {
+    display: flex !important; 
+    justify-content: space-between !important;
+    margin-left: auto !important;
+}
+
+.disabled {
+  opacity: .2 !important;
+  cursor: inherit !important;
+}
+
+.centerMiddle {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  @include aligment(center);
+}
+
+* {
+  transition: .1s ease-in-out !important;
+}
+
+@keyframes animate-arrow-right {
+  0% {
+    transform:translateX(-20px);
+    opacity: 0;
+  }
+  70%,
+  100% {
+    transform:translateX(0px);
+    opacity: 1;
+  }
+}
+
+i {
+  cursor: pointer;
+}
+
+.no-bg {
+  background: transparent !important;
+}
+
+.initMayus {
+  text-transform: initial !important;
+}
+
+// custom scrollbars
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: $primaryLightColor; 
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: $primaryLightColor; 
+}
+
+@media #{$mobile}  {
+  ::-webkit-scrollbar-thumb {
+    display: none; 
+  }
+}

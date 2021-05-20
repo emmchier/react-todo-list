@@ -1,0 +1,19 @@
+// media queries sizes
+
+/* desk pc escritorio de 20 */
+$deskXL: "(min-width: 1500px)";
+/* desk notebook*/
+$noteXl: "(min-width: 1200px) and (max-width: 1499px)";
+/* desk notebooks más chicas */
+$noteSM: "(min-width: 993px) and (max-width: 1199px)";
+/* tablet o iPad */
+$tablet: "(min-width: 601px) and (max-width: 992px)";
+/* mobile */
+$mobile: "(max-width: 600px)";
+/* mobile iPhone 6 + iPhoneX */
+$iPhoneX: "(min-width: 375px) and (max-width: 410px)";
+/* mobile MotoG4 + Galaxy S5 */
+$galaxy5: "(min-width: 360px) and (max-width: 374px)";
+/* galaxy fold + iPhone 5*/
+$iPhone5: "(min-width: 280px) and (max-width: 359px)";
+
