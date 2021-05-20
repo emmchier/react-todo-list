@@ -30,7 +30,6 @@ export const TodoAddTask = ({ dispatch }) => {
         reset();
     }
 
-
     return (
         <form onSubmit={ handleAddTask } className="home__add-form">
             <div className="home__form-content alignX">

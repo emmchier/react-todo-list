@@ -2,7 +2,17 @@ import React from 'react';
 
 import { CustomBtn } from '../../ui/customs/CustomBtn';
 
-export const TodoItem = ({task, index}) => {
+export const TodoItem = ({task, index, dispatch}) => {
+
+    const handleDeleteTask = () => {
+
+        const deleteTask = {
+            type: 'delete',
+            payload: task.id
+        }
+
+        dispatch( deleteTask );
+    }
 
     return (
         <li
@@ -15,6 +25,7 @@ export const TodoItem = ({task, index}) => {
                 <CustomBtn
                     btnTitle={ 'Borrar' }
                     classes={ 'btn-delete btnNormal' }
+                    onClick={ handleDeleteTask }
                 />
             </div>
         </li>

@@ -30,6 +30,7 @@ export const TodoList = () => {
                                     key={ task.id }
                                     index={ i }
                                     task={ task }
+                                    dispatch={ dispatch }
                                 />
                             ))
                         }
