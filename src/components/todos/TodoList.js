@@ -12,7 +12,7 @@ const initialState = [{
 
 export const TodoList = () => {
 
-    const [ todos ] = useReducer( todoReducer, initialState );
+    const [ todos, dispatch ] = useReducer( todoReducer, initialState );
     console.log(todos);
 
     return (
@@ -35,7 +35,7 @@ export const TodoList = () => {
                 <div className="col-sm col-7">
                     <h2>ADD TASK</h2>
 
-                    <TodoAddTask />
+                    <TodoAddTask dispatch={ dispatch } />
                 </div>
             </div>
         </>

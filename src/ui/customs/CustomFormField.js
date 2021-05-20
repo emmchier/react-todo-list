@@ -9,6 +9,7 @@ export const CustomFormField = ({
     formInputType,
     formInputClasses,
     formInputId,
+    formInputValue,
     formInputName,
     onSubmit,
     onChange,
@@ -29,13 +30,14 @@ export const CustomFormField = ({
                 type={ formInputType } 
                 className={ formInputClasses } 
                 id={ formInputId } 
+                value={ formInputValue }
                 name={ formInputName }
                 onSubmit={ onSubmit }
                 onChange={ onChange }
                 placeholder={ formInputPlaceholder }
                 autoComplete="off"
                 aria-describedby={ ariaDescribedby }
-                required />
+                />
         </div>
     )
 }
