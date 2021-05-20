@@ -126,6 +126,10 @@ i {
   background: $primaryLightColor; 
 }
 
+.doneState {
+  text-decoration: line-through;
+}
+
 @media #{$mobile}  {
   ::-webkit-scrollbar-thumb {
     display: none; 

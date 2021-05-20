@@ -103,7 +103,7 @@ $main_secondary_text_color: $secondaryTextColor;
 
     @include customBtnStyles( 
         $bg: $primaryColor, 
-        $bor: null );
+        $bor: 1px solid transparent );
 
     } @else if $type == $outline {
 
