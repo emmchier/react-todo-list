@@ -23,7 +23,7 @@ export const TodoAddTask = ({ dispatch }) => {
         };
         
         dispatch({
-            type: actionTypes.addAction,
+            type: actionTypes.addTask,
             payload: newTask
         });
         
