@@ -1,13 +1,14 @@
 import React from 'react';
 
 import { CustomBtn } from '../../ui/customs/CustomBtn';
+import { actionTypes } from '../../utils/types';
 
 export const TodoItem = ({task, index, dispatch}) => {
 
     const handleDeleteTask = () => {
 
         dispatch({
-            type: 'delete',
+            type: actionTypes.deleteAction,
             payload: task.id
         });
     }
@@ -15,7 +16,7 @@ export const TodoItem = ({task, index, dispatch}) => {
     const handleCheckedTask = () => {
 
         dispatch({
-            type: 'checked',
+            type: actionTypes.checkedAction,
             payload: task.id
         });
     }

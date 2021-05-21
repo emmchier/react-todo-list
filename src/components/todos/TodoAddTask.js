@@ -3,6 +3,7 @@ import React from 'react';
 import { useForm } from '../../hooks/useForm';
 import { CustomBtn } from '../../ui/customs/CustomBtn';
 import { CustomFormField } from '../../ui/customs/CustomFormField';
+import { actionTypes } from '../../utils/types';
 
 export const TodoAddTask = ({ dispatch }) => {
 
@@ -20,13 +21,12 @@ export const TodoAddTask = ({ dispatch }) => {
             desc: desc,
             done: false
         };
-
-        const addTask = {
-            type: 'add',
+        
+        dispatch({
+            type: actionTypes.addAction,
             payload: newTask
-        }
-
-        dispatch( addTask );
+        });
+        
         reset();
     }
 
