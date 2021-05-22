@@ -5,7 +5,8 @@ export const actionTypes = {
     showAllTasks: 'show-all',
     deleteAllTasks: 'delete-all',
     completeTask: 'complete',
-    hideCompleteTasks: 'hide-complete',
-    editTask: 'edit'
+    editTask: 'edit',
+    showCompleted: 'show-completed',
+    deleteTaskById: 'delete-by-id'
     
 }

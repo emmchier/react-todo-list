@@ -14,38 +14,25 @@ export const TodoList = () => {
 
     const [ todos, dispatch ] = useReducer( todoReducer, [], init );
 
-    useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify( todos ));
-    }, [todos]);
-
     console.log(todos);
 
-    const [stateTitle, setStateTitle] = useState('Ocultar Completadas');
-    const [filterTodos, setFilterTodos] = useState([]);
-
-    const handleFilter = () => {
-        if (stateTitle === 'Ocultar Completadas') {
-            setFilterTodos(todos.filter( task => task.done === false));
-            setStateTitle('Mostrar Completadas');
-        } else if (stateTitle === 'Mostrar Completadas') {
-            setFilterTodos(todos.filter( task => task.done === true));
-            setStateTitle('Ocultar Completadas');
-        } else {
-            setFilterTodos(filterTodos);
-        }
-        dispatch({
-            type: actionTypes.hideCompleteTasks,
-            payload: filterTodos
-        });
-    }
-
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify( todos));
+    }, [todos]);
+    
     const handleDeleteAll = () => {
       
         dispatch({
             type: actionTypes.deleteAllTasks,
             payload: todos
         });
-    }   
+    }  
+
+    const [hideCompleted, setHideCompleted] = useState(false);
+
+    const showCompleted = hideCompleted ? todos.filter( task => !task.done) : todos;
+
+    const handleComplete = () => setHideCompleted(!hideCompleted);
 
     return (
         <>
@@ -54,14 +41,19 @@ export const TodoList = () => {
                 <div className="home__header-actions">
 
                     <CustomBtn
+                        btnTitle={ 
+                            hideCompleted
+                            ? 'Mostrar completadas'
+                            : 'Ocultar completadas'
+                        }
+                        classes={ 'btn-show-completed btnNormal' }
+                        onClick={ handleComplete }
+                    />
+
+                    <CustomBtn
                         btnTitle={ 'Borrar todo' }
                         classes={ 'btn-delete-all btnNormal' }
                         onClick={ handleDeleteAll }
-                    />
-                    <CustomBtn
-                        btnTitle={ stateTitle }
-                        classes={ 'btn-show-checked btnNormal' }
-                        onClick={ handleFilter }
                     />
 
                 </div>
@@ -71,7 +63,7 @@ export const TodoList = () => {
                 <div className="col-sm col-7">
                     <ul className="home__todoList list-group list-group-flush">
                         {
-                            todos.map( (task, i) => (
+                            showCompleted.map( (task, i) => (
                                 <TodoItem
                                     key={ task.id }
                                     index={ i }

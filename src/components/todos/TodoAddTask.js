@@ -19,7 +19,8 @@ export const TodoAddTask = ({ dispatch }) => {
         const newTask = {
             id: new Date().getTime(),
             desc: desc,
-            done: false
+            done: false,
+            checked: false
         };
         
         dispatch({

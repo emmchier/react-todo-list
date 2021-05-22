@@ -128,6 +128,8 @@ i {
 
 .checkedTask {
   text-decoration: line-through;
+  color: $primaryDarkColor;
+  cursor: none;
 }
 
 @media #{$mobile}  {
