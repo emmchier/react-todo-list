@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
     BrowserRouter as Router,
     Switch,
@@ -7,14 +6,14 @@ import {
     Redirect
 } from "react-router-dom";
 
-import { HomeScreen } from '../pages/HomeScreen';
+import { HomeScreen } from 'pages/HomeScreen';
 
 export const AppRouter = () => {
-    
+
     return (
         <Router>
             <Switch>
-                <Route exact path="/" component={ HomeScreen } />
+                <Route exact path="/" component={HomeScreen} />
                 <Redirect to="/" />
             </Switch>
         </Router>

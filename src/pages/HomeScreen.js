@@ -1,14 +1,39 @@
-import React from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
+import { TodoList } from 'components/todos/TodoList';
+import { Navbar } from 'ui/Navbar';
+import { todoReducer } from 'reducers/todoReducer';
 
-import { TodoList } from '../components/todos/TodoList';
+const init = () => {
+    return JSON.parse(localStorage.getItem('todos')) || [];
+};
 
 export const HomeScreen = () => {
 
+    const [todos, dispatch] = useReducer(todoReducer, [], init);
+
+    console.log(todos);
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
+
+    const [hideCompleted, setHideCompleted] = useState(false);
+
     return (
-        <div className="container">
-
-            <TodoList />
-
-        </div>
+        <>
+            <Navbar
+                todos={todos}
+                dispatch={dispatch}
+                hideCompleted={hideCompleted}
+                setHideCompleted={setHideCompleted}
+            />
+            <div className="container">
+                <TodoList
+                    todos={todos}
+                    dispatch={dispatch}
+                    hideCompleted={hideCompleted}
+                />
+            </div>
+        </>
     )
 }

@@ -1,33 +1,31 @@
-import { actionTypes } from "../utils/types";
+import { actionTypes } from "./typesReducer";
 
-export const todoReducer = ( state = [], action ) => {
+export const todoReducer = (state = [], action) => {
 
     const { payload } = action;
 
-    switch ( action.type ) {
+    switch (action.type) {
         case actionTypes.addTask:
-            return [ ...state, payload ];    
+            return [...state, payload];
         case actionTypes.deleteTask:
-            return state.filter( task => task.id !== payload );
+            return state.filter(task => task.id !== payload);
         case actionTypes.deleteAllTasks:
-            return state = []; 
+            return state = [];
         case actionTypes.completeTask:
-            return state.map( task => 
-                ( task.id === payload.id )
-                ? { ...task, done: !task.done, checked: !task.checked }
-                : task
+            return state.map(task =>
+                (task.id === payload.id)
+                    ? { ...task, done: !task.done, checked: !task.checked }
+                    : task
             )
         case actionTypes.editTask:
-            return state.map( task => 
-                ( task.id === payload.id )
-                ? { ...task, desc: payload.desc }
-                : task
+            return state.map(task =>
+                (task.id === payload.id)
+                    ? { ...task, desc: payload.desc }
+                    : task
             )
         case actionTypes.showCompleted:
             return payload;
         default:
             return state;
-         
     }
-    
 }

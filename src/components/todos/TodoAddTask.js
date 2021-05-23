@@ -1,52 +1,38 @@
 import React from 'react';
-
-import { useForm } from '../../hooks/useForm';
-import { CustomBtn } from '../../ui/customs/CustomBtn';
-import { CustomFormField } from '../../ui/customs/CustomFormField';
-import { actionTypes } from '../../utils/types';
+import { useForm } from 'hooks/useForm';
+import { actionTypes } from 'reducers/typesReducer';
+import { TodoForm } from './TodoForm';
 
 export const TodoAddTask = ({ dispatch }) => {
 
-    const [ { desc }, handleInputChange, reset ] = useForm({
-        desc: ''
-    });
+    const [{ desc }, handleInputChange, reset] = useForm({ desc: '' });
 
     const handleAddTask = (e) => {
         e.preventDefault();
-
-        if ( desc.trim().length <= 0 ) { return; } 
-        
+        if (desc.trim().length <= 0) { return; }
         const newTask = {
             id: new Date().getTime(),
             desc: desc,
             done: false,
             checked: false
         };
-        
         dispatch({
             type: actionTypes.addTask,
             payload: newTask
         });
-        
         reset();
     }
-
+    
     return (
-        <form onSubmit={ handleAddTask } className="home__add-form">
-            <div className="home__form-content alignX">
-                <CustomFormField 
-                    formInputType={ 'text' }
-                    formInputName={ 'desc' }
-                    formInputValue={ desc }
-                    formInputPlaceholder={ 'Nueva tarea...' }
-                    onChange={ handleInputChange }
-                /> 
-                <CustomBtn
-                    btnTitle={ 'Agregar' }
-                    classes={ 'btn-add btnNormal' }
-                    btnType={ 'submit' }
-                />
-            </div>
-        </form>
+        <TodoForm
+            inputType={'text'}
+            inputValue={desc}
+            inputName={'desc'}
+            inputOnChange={handleInputChange}
+            inputPlaceholder={'Nueva tarea...'}
+            btnTitle={'Agregar'}
+            btnClasses={'btn-add btnNormal'}
+            onSubmit={handleAddTask}
+        />
     )
 }
