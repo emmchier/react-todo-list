@@ -23,7 +23,7 @@ export const CustomBtn = ({
             <button
                 className={
                     hover
-                        ? `hover-active ${classes}`
+                        ? `btn-custom hover-active ${classes}`
                         : `${classes}`
                 }
                 onMouseEnter={() => { setHover(isHover) }}
@@ -38,7 +38,7 @@ export const CustomBtn = ({
             <Link
                 className={
                     hover
-                        ? `hover-active ${classes}`
+                        ? `btn-custom hover-active ${classes}`
                         : ` ${classes}`
                 }
                 onMouseEnter={() => { setHover(isHover) }}
