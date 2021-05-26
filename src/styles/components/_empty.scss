@@ -20,3 +20,13 @@
     }
 
 }
+
+@media #{$mobile} {
+  .empty__container {
+    width: 95vw !important;
+    img {
+      width: 100% !important;
+    }
+  }
+ 
+}

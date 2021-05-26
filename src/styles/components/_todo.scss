@@ -1,5 +1,7 @@
 .home__todoList {
     width: 100%;
+    padding-bottom: 3rem;
+
     p {
         margin-bottom: 0;
     }
@@ -51,7 +53,6 @@
     .home__todoList {
 
         .todoList__header {
-    
             margin: 0 !important;
             font-size: $main_secondary_text;
             
@@ -59,32 +60,26 @@
                 display: block !important; 
             }
 
-            .form-group {
-                input {
-                    flex-grow: 1;
-                }
-
-                
-            }
-
             .btn-custom {
-                flex-grow: 1;
+                margin-left: 10px;
+                padding: 10px !important;
             }
 
+            .form-group {
+                flex-grow: 1;
+                padding: 15px 0 !important;
 
+                input {
+                    width: 100% !important;
+                }
+            }
 
             h3 {
                 font-size: $main_primary_text !important; 
                 order: 2 !important;
             }
 
-            .todoItem__edit-form {
-                display: flex;
-
-                .form-group {
-                    flex-grow: 1 !important;
-                }
-            }
+          
         }
     }
 }

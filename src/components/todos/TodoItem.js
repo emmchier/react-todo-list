@@ -76,10 +76,11 @@ export const TodoItem = ({ task, index, dispatch }) => {
                                 />
                             <span></span>
                         </label>
+                 
                     <p
                         className={`todoItem__todo-desc ${task.done && 'checkedTask'}`}
                         onClick={(e) => handleCompleteTask(e)}>
-                        {index + 1}. {task.desc}
+                        {task.desc}
                     </p>
                 </div>
                 <div className="todoItem__item-actions-container alignX">
@@ -114,7 +115,7 @@ export const TodoItem = ({ task, index, dispatch }) => {
                         inputValue={desc}
                         inputName={'desc'}
                         inputOnChange={handleInputChange}
-                        inputPlaceholder={'Cambiar nombre...'}
+                        inputPlaceholder={'Cambiar descripción...'}
                         btnTitle={'Guardar'}
                         btnClasses={'btn-save-edit btnNormal'}
                         onSubmit={handleEditTask}
