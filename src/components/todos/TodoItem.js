@@ -84,14 +84,14 @@ export const TodoItem = ({ task, index, dispatch }) => {
                 </div>
                 <div className="todoItem__item-actions-container alignX">
                     <CustomBtn
-                        classes={isMobile ? 'btn-edit btnFAB' : 'btn-edit btnNormal'}
+                        classes={isMobile ? 'btn-edit btnFAB' : 'btn-edit btnOutline'}
                         btnTitle={isMobile ? '' : 'Editar'}
                         onClick={() => setEditVisible(!editVisible)}
                         isIconLeftVisible={true}
                         btnIcon={'edit'}
                     />
                     <CustomBtn
-                        classes={isMobile ? 'btn-delete btnFAB' : 'btn-delete btnNormal'}
+                        classes={isMobile ? 'btn-delete btnFAB' : 'btn-delete btnOutline'}
                         btnTitle={isMobile ? '' : 'Eliminar'}
                         onClick={handleDeleteTask}
                         isIconLeftVisible={true}
@@ -102,7 +102,13 @@ export const TodoItem = ({ task, index, dispatch }) => {
             </div>
             {
                 editVisible &&
-                <div className="todoItem__edit-form alignX">
+                <div 
+                    className="
+                    animate__animated 
+                    animate__fadeIn 
+                    animate__faster
+                    todoItem__edit-form 
+                    alignX">
                     <TodoForm
                         inputType={'text'}
                         inputValue={desc}
@@ -114,7 +120,7 @@ export const TodoItem = ({ task, index, dispatch }) => {
                         onSubmit={handleEditTask}
                     />
                     <i 
-                        className="material-icons"
+                        className="material-icons btn-close-edit"
                         onClick={() => setEditVisible(!editVisible)}>
                             close
                     </i>

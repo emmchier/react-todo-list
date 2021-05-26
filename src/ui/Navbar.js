@@ -52,14 +52,14 @@ export const Navbar = ({
                 <div className="nav__header-actions">
                     <CustomBtn
                         btnTitle={ !isMobile ? titleResCondition : '' }
-                        classes={isMobile ? 'btn-show-completed btnFAB' : 'btn-show-completed btnNormal'}
+                        classes={isMobile ? 'btn-show-completed btnFAB' : 'btn-show-completed btnText'}
                         onClick={handleComplete}
                         isIconLeftVisible={true}
                         btnIcon={hideCompleted ? 'visibility_off' : 'visibility'}
                     />
                     <CustomBtn
                         btnTitle={isMobile ? '' : 'Eliminar todo'}
-                        classes={isMobile ? 'btn-delete-all btnFAB' : 'btn-delete-all btnNormal'}
+                        classes={isMobile ? 'btn-delete-all btnFAB' : 'btn-delete-all btnText'}
                         onClick={handleDeleteAll}
                         isIconLeftVisible={true}
                         btnIcon={'delete'}

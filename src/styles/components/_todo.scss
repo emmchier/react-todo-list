@@ -1,5 +1,5 @@
 .home__todoList {
-
+    width: 100%;
     p {
         margin-bottom: 0;
     }
@@ -12,11 +12,11 @@
         h3 {
             font-size: $main_header_secondary_text;
             color: $primaryTextColor;
+            margin-bottom: 0;
         }
        
         h3,
         .form-group {
-            margin-bottom: 0;
 
             input {
                 border: 1px solid $disableLightColor;
@@ -44,5 +44,47 @@
             cursor: pointer;
         }
 
+    }
+}
+
+@media #{$mobile} {
+    .home__todoList {
+
+        .todoList__header {
+    
+            margin: 0 !important;
+            font-size: $main_secondary_text;
+            
+            &.pushAside {
+                display: block !important; 
+            }
+
+            .form-group {
+                input {
+                    flex-grow: 1;
+                }
+
+                
+            }
+
+            .btn-custom {
+                flex-grow: 1;
+            }
+
+
+
+            h3 {
+                font-size: $main_primary_text !important; 
+                order: 2 !important;
+            }
+
+            .todoItem__edit-form {
+                display: flex;
+
+                .form-group {
+                    flex-grow: 1 !important;
+                }
+            }
+        }
     }
 }

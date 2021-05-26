@@ -275,6 +275,7 @@ i {
 
 .btnText {
     @include getStylesByType('text');
+    border: none;
     &:hover {
         @include customHovertyles( 
             $bg: null,
@@ -499,4 +500,60 @@ i {
 [type="checkbox"].baseCheckbox:disabled:checked + span:not(.lever):after {
   background-color: #949494;
   border-color: #949494;
+}
+
+// Media Queries
+
+@media #{$mobile} {
+  // set styles to each button class
+  .btnNormal {
+    @include getStylesByType('normal');
+    &:hover {
+        &:focus,
+        &:active {
+          background-color: $primaryColor
+        }
+    }
+  }
+
+  .btnOutline {
+    @include getStylesByType('outline');
+    &:hover {
+      &:focus,
+      &:active {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .btnText {
+    @include getStylesByType('text');
+    &:hover {
+        @include customHovertyles( 
+            $bg: null,
+            $bor: null,
+            $under: null);
+    }
+  }
+
+  .btnFAB {
+    @include getStylesByType('fab');
+    border: none;
+    border-radius: 50px;
+    padding: 1px;
+    margin-bottom: 5px;
+    box-shadow: none !important;
+    &:hover {
+      &:focus,
+      &:active {
+        background-color: transparent;
+      }
+    }
+
+    .btn-icon {
+      font-size: 20px;
+      margin: 0;
+      padding: 10px;
+    }
+  }
 }

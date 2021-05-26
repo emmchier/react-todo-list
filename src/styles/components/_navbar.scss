@@ -8,7 +8,14 @@
         font-size: $main_header_text;
     }
 
-    .btn-show-completed {
-        margin-right: 20px;
+}
+
+@media #{$mobile} {
+    .navbar {
+        padding: 0;
+
+        .navbar-brand {
+            font-size: 1.2rem;
+        }
     }
 }
