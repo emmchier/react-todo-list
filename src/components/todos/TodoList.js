@@ -26,7 +26,7 @@ export const TodoList = ({
                         </div>
                     </div>
                 </div>
-                <ul className="list-group list-group-flush">
+                <ul className="list-group-flush">
                     {
                         showCompleted.map((task, i) => (
                             <TodoItem

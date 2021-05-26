@@ -31,7 +31,7 @@ export const TodoItem = ({ task, index, dispatch }) => {
             }
         });
         reset();
-        setEditVisible(false);
+        setEditVisible(!editVisible);
     }
 
     const handleCompleteTask = (e) => {
@@ -60,10 +60,16 @@ export const TodoItem = ({ task, index, dispatch }) => {
             className="todoItem__todo-item list-group-item">
             <div className="todoItem__todo-item-content alignX pushAside">
                 <div className="todoItem__item-name-container alignX">
-                    <input
-                        type="checkbox"
-                        checked={task.checked}
-                        onChange={(e) => handleCompleteTask(e)} />
+
+                         <label>
+                            <input 
+                                type="checkbox" 
+                                className="filled-in"
+                                checked={task.checked}
+                                onChange={(e) => handleCompleteTask(e)}
+                                />
+                            <span></span>
+                        </label>
                     <p
                         className={`todoItem__todo-desc ${task.done && 'checkedTask'}`}
                         onClick={(e) => handleCompleteTask(e)}>
@@ -74,7 +80,7 @@ export const TodoItem = ({ task, index, dispatch }) => {
                     <CustomBtn
                         classes={isMobile ? 'btn-edit btnFAB' : 'btn-edit btnNormal'}
                         btnTitle={isMobile ? '' : 'Editar'}
-                        onClick={() => setEditVisible(true)}
+                        onClick={() => setEditVisible(!editVisible)}
                         isIconLeftVisible={true}
                         btnIcon={'edit'}
                     />
@@ -103,7 +109,7 @@ export const TodoItem = ({ task, index, dispatch }) => {
                     />
                     <i 
                         className="material-icons"
-                        onClick={() => setEditVisible(false)}>
+                        onClick={() => setEditVisible(!editVisible)}>
                             close
                     </i>
                 </div>

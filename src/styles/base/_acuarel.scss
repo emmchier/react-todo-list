@@ -132,7 +132,7 @@ i {
 .checkedTask {
   text-decoration: line-through;
   color: #ccc;
-  cursor: none;
+  cursor: inherit;
 }
 
 @media #{$mobile}  {

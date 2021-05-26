@@ -23,8 +23,6 @@ export const todoReducer = (state = [], action) => {
                     ? { ...task, desc: payload.desc }
                     : task
             )
-        case actionTypes.showCompleted:
-            return payload;
         default:
             return state;
     }
