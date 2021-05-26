@@ -1,3 +1,4 @@
+import { EmptyComponent } from 'components/empty/EmptyComponent';
 import React from 'react';
 import { TodoAddTask } from './TodoAddTask';
 import { TodoItem } from './TodoItem';
@@ -13,31 +14,35 @@ export const TodoList = ({
     return (
         <>
             <div className="home__todoList">
-                <div className="todoList__header">
-                    <div className="row pushAside">
-                        <div className="col-sm col-md-6">
-                            <h3>Mis tareas ({todos.length})</h3>
-                        </div>
-                        <div className="col-sm col-md-6">
-                            <TodoAddTask
-                                todoList={todos}
-                                dispatch={dispatch}
-                            />
-                        </div>
-                    </div>
+                <div className="todoList__header pushAside">
+                    <h3>Mis tareas ({todos.length})</h3>
+                    <TodoAddTask
+                        todoList={todos}
+                        dispatch={dispatch}
+                    />
                 </div>
-                <ul className="list-group-flush">
-                    {
-                        showCompleted.map((task, i) => (
-                            <TodoItem
-                                key={task.id}
-                                index={i}
-                                task={task}
-                                dispatch={dispatch}
-                            />
-                        ))
-                    }
-                </ul>
+                {
+                    showCompleted.length > 0
+                    ? <ul 
+                        className="
+                            list-group-flush 
+                            animate__animated 
+                            animate__fadeIn 
+                            animate__faster"
+                        >
+                        {
+                            showCompleted.map((task, i) => (
+                                <TodoItem
+                                    key={task.id}
+                                    index={i}
+                                    task={task}
+                                    dispatch={dispatch}
+                                />
+                            ))
+                        }
+                    </ul>
+                    : <EmptyComponent />
+                }
             </div>
            
         </>

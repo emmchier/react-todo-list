@@ -10,6 +10,7 @@ $secondaryDarkColor: #0d0ca7; // disableColor
 $primaryTextColor: #333333; // disableColor
 $secondaryTextColor: #858282; // secondaryTextColor
 $disableColor: #E8E9EB; // separator
+$disableLightColor: #e8e9eb62; 
 $backgroundLight: #9368ff21;
 $whiteColor: #FFFFFF; 
 $blackColor: #000000;
@@ -19,7 +20,8 @@ $overlay: #00000069;
 $main_border_radius : 5px;
 $main_primary_text: 1rem;
 $main_secondary_text: .8rem;
-$main_header_text: 1rem;
+$main_header_text: 1.5rem;
+$main_header_secondary_text: 1.3rem;
 $main_icon_size: 20px;
 $main_primary_text_color: $secondaryColor;
 $main_secondary_text_color: $secondaryTextColor;

@@ -57,14 +57,20 @@ export const TodoItem = ({ task, index, dispatch }) => {
 
     return (
         <li
-            className="todoItem__todo-item list-group-item">
+            className="
+                todoItem__todo-item 
+                list-group-item
+                animate__animated 
+                animate__fadeIn 
+                animate__faster
+                ">
             <div className="todoItem__todo-item-content alignX pushAside">
                 <div className="todoItem__item-name-container alignX">
 
                          <label>
                             <input 
                                 type="checkbox" 
-                                className="filled-in"
+                                className="indeterminate"
                                 checked={task.checked}
                                 onChange={(e) => handleCompleteTask(e)}
                                 />

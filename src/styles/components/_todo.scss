@@ -4,6 +4,40 @@
         margin-bottom: 0;
     }
 
+    .todoList__header {
+        width: 100%;
+        margin: 20px 0;
+        align-items: center;
+
+        h3 {
+            font-size: $main_header_secondary_text;
+            color: $primaryTextColor;
+        }
+       
+        h3,
+        .form-group {
+            margin-bottom: 0;
+
+            input {
+                border: 1px solid $disableLightColor;
+                @include getShadow;
+                padding: 10px;
+                border-radius: 5px;
+                margin-right: 10px;
+
+                &::placeholder,
+                &::-moz-placeholder,
+                &::-webkit-input-placeholder {
+                    color: $secondaryTextColor;
+                }
+            }
+        }
+
+        .btn-add{
+            padding: 12px 20px !important;
+        }
+    }
+
     .home__todo-item {
 
         .home__todo-desc {

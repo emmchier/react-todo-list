@@ -20,7 +20,11 @@ export const HomeScreen = () => {
     const [hideCompleted, setHideCompleted] = useState(false);
 
     return (
-        <>
+        <div
+            className="
+                animate__animated
+                animate__fadeIn 
+                animate__faster">
             <Navbar
                 todos={todos}
                 dispatch={dispatch}
@@ -34,6 +38,6 @@ export const HomeScreen = () => {
                     hideCompleted={hideCompleted}
                 />
             </div>
-        </>
+        </div>
     )
 }

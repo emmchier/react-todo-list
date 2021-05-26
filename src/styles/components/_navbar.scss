@@ -1,0 +1,14 @@
+.navbar {
+    background-color: $whiteColor;
+    border-bottom: 1px solid $disableColor;
+
+    .navbar-brand {
+        color: $secondaryColor;
+        font-weight: 700;
+        font-size: $main_header_text;
+    }
+
+    .btn-show-completed {
+        margin-right: 20px;
+    }
+}

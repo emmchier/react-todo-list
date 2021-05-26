@@ -18,7 +18,7 @@ html, body {
   @include borderBox(border-box);
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 main {
@@ -118,26 +118,6 @@ button:focus,
   display: grid;
   overflow: hidden;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-}
-
-.empty-container {
-  justify-content: center;
-  display: flex;
-  width: 100%;
-
-  p {
-    justify-content: center;
-    text-align: center;
-  }
-
-  img {
-    height: 50vh;
-  }
-
-  span {
-    display: block;
-  }
-
 }
 
 .navbar.getShadow {
