@@ -47,7 +47,7 @@ describe('Pruebas en <TodoItem.js />', () => {
 
     test('debe mostrar descripción de la task', () => {
         const p = wrapper.find('p');
-        expect(p.text().trim()).toBe(`1. ${demoTodos[0].desc}`);
+        expect(p.text().trim()).toBe(demoTodos[0].desc);
     });
 
     test('debe tener la clase checkedTask si la task esta en task.done = true', () => {
